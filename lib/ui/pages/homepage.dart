@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          AppBarWiget(),
+          AppBarWidget(),
           // search
           SearchBarWidget(),
           // category

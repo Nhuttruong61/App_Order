@@ -14,6 +14,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Cart'),
+        
       ),
       body: Column(
         children: <Widget>[

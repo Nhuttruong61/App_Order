@@ -11,7 +11,7 @@ class ProductDetail extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          AppBarWiget(),
+          AppBarWidget(),
           Padding(
               padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
