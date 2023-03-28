@@ -1,6 +1,9 @@
+import 'package:apporderfood/products/products_manager.dart';
 import 'package:flutter/material.dart';
-import 'ui/pages/homepage.dart';
-import 'ui/pages/product_detail.dart';
+import 'ui/pages/screen.dart';
+
+
+import 'products/products_manager.dart';
 
 
 void main() {
@@ -20,7 +23,8 @@ class MyApp extends StatelessWidget {
        scaffoldBackgroundColor: Color.fromARGB(255, 236, 221, 198)
       ),
       routes: {
-        "/" : (context) => HomePage(),
+        // "/" : (context) =>ProductDetail(ProductsManagerPopurlar().items[1])
+        "/":(context) => CartScreen(),
       },
     );
   }
