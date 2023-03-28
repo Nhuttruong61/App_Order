@@ -9,9 +9,9 @@ class PopularItem extends StatelessWidget {
     return Container(
       height: 225,
       child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(width: 7),
-        scrollDirection: Axis.horizontal,
-        itemCount: _productsManager.items.length,
+        separatorBuilder: (context, index) => SizedBox(width: 7), // Tạo khoảng cách giữa các sản phẩm
+        scrollDirection: Axis.horizontal, // Hiển thị sản phẩm theo chiều ngang
+        itemCount: _productsManager.items.length, // Số lượng sản phẩm trong danh sách
         itemBuilder: (BuildContext context, int index) {
           final product = _productsManager.items[index];
           return Container(
@@ -42,20 +42,20 @@ class PopularItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 10), // Tạo khoảng cách giữa ảnh và tiêu đề sản phẩm
                   Text(
-                    product.title,
+                    product.title, // Hiển thị tiêu đề sản phẩm
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  SizedBox(height: 5), // Tạo khoảng cách giữa tiêu đề và giá sản phẩm
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${product.price.toString()} đồng',
+                        '${product.price.toString()} đồng', // Hiển thị giá của sản phẩm
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black,
@@ -63,10 +63,10 @@ class PopularItem extends StatelessWidget {
                       ),
                       IconButton(
                         icon: const Icon(
-                          Icons.shopping_cart,
+                          Icons.shopping_cart, // Hiển thị biểu tượng giỏ hàng
                           color: Colors.red,
                         ),
-                        onPressed: () {},
+                        onPressed: () {}, // Hành động khi nhấn vào biểu tượng giỏ hàng
                       ),
                     ],
                   ),

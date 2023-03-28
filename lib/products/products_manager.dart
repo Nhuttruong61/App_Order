@@ -94,3 +94,50 @@ class ProductsManagerNestItem {
     return [..._items];
   }
 }
+
+class ProductsManagerSuggest {
+  final List<Product> _items = [
+    Product(
+      id: 'b1',
+      title: 'Bún cá',
+      description: 'Bún và chả cá nướng trộn nước mắm, rau sống',
+      price: 25000,
+      imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/B%C3%BAn_C%C3%A1_H%C3%A0_N%E1%BB%99i.jpg/180px-B%C3%BAn_C%C3%A1_H%C3%A0_N%E1%BB%99i.jpg",
+    ),
+    Product(
+      id: 'b2',
+      title: 'Bún chả',
+      description:
+          'Bún ăn kèm chả viên và chả miếng với nước chấm',
+      price: 50000,
+      imageUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/B%C3%BAn_ch%E1%BA%A3_H%C3%A0ng_M%C3%A0nh.jpg/180px-B%C3%BAn_ch%E1%BA%A3_H%C3%A0ng_M%C3%A0nh.jpg',
+    ),
+    Product(
+      id: 'b3',
+      title: 'Bún đậu mắm tôm',
+      description:
+          'Bún ăn với đậu rán và mắm tôm',
+      price: 30000,
+      imageUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/B%C3%BAn_%C4%91%E1%BA%ADu_m%E1%BA%AFm_t%C3%B4m.jpg/180px-B%C3%BAn_%C4%91%E1%BA%ADu_m%E1%BA%AFm_t%C3%B4m.jpg',
+    ),
+    Product(
+      id: 'b4',
+      title: 'Bún ắm',
+      description:
+          'Bún chan nước dùng làm từ mắm cá linh hay cá sặc',
+      price: 25000,
+      imageUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/B%C3%BAn_m%E1%BA%AFm.jpg/180px-B%C3%BAn_m%E1%BA%AFm.jpg',
+    ),
+  ];
+    int get itemCount {
+    return _items.length;
+  }
+
+  List<Product> get items {
+    return [..._items];
+  }
+}

@@ -37,6 +37,14 @@ class HomePage extends StatelessWidget {
             ),
           ),
           NewestItem(),
+          Padding(
+              padding: EdgeInsets.only(top: 20, left: 10),
+              child: Text(
+                "Gợi ý",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              )),
+              // Suggest
+              SuggestWidget(),
         ],
       ),
     );
