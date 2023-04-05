@@ -11,15 +11,15 @@ class ProductDetail extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          AppBarWidget(),
+          const AppBarWidget(),
           Padding(
-              padding: EdgeInsets.only(top: 20, left: 10),
+              padding: const EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 product.title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               )),
           Padding(
-              padding: EdgeInsets.only(top: 20, left: 10),
+              padding: const EdgeInsets.only(top: 20, left: 10),
               child: Column(
                 children: <Widget>[
                   SizedBox(
@@ -49,6 +49,20 @@ class ProductDetail extends StatelessWidget {
                   )
                 ],
               )),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:16),
+                child: ElevatedButton(
+                  onPressed: (){
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: const TextStyle(fontSize: 16, ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  child: const Text('Thêm vào giỏ hàng'),
+                ),
+              )
         ],
       ),
     );

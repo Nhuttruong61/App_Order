@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepOrange),
           scaffoldBackgroundColor: const Color.fromARGB(255, 236, 221, 198)),
       routes: {
-        // "/" : (context) =>ProductDetail(ProductsManagerPopurlar().items[1])
-        "/": (context) =>const UserProductScreen(),
+        "/" : (context) =>ProductDetail(ProductsManagerPopurlar().items[1])
+        // "/": (context) =>const UserProductScreen(),
       },
     );
   }
