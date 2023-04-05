@@ -4,8 +4,8 @@ class CartManager {
   final Map<String, CartItem> _items = {
     'p1': CartItem(
       id: 'c1',
-      title: 'Red Shirt',
-      price: 29.99,
+      title: 'Hamburger',
+      price: 39000,
       quantity: 2,
     ),
   };

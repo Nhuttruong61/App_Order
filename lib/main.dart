@@ -1,4 +1,5 @@
 import 'package:apporderfood/products/products_manager.dart';
+import 'package:apporderfood/ui/orders/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'ui/pages/screen.dart';
 
@@ -15,15 +16,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Food App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepOrange),
-          scaffoldBackgroundColor: const Color.fromARGB(255, 236, 221, 198)),
-      routes: {
-        "/" : (context) =>ProductDetail(ProductsManagerPopurlar().items[1])
-        // "/": (context) =>const UserProductScreen(),
-      },
-    );
+        title: 'Food App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            colorScheme:
+                ColorScheme.fromSwatch(primarySwatch: Colors.deepOrange),
+            scaffoldBackgroundColor: const Color.fromARGB(255, 236, 221, 198)),
+        routes: {
+          // "/" : (context) =>ProductDetail(ProductsManagerPopurlar().items[1])
+          // "/": (context) =>const UserProductScreen(),
+          "/": (context) => const OrdersScreen(),
+        });
   }
 }
