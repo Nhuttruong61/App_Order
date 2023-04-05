@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class SearchBarWidget extends StatelessWidget {
+  const SearchBarWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Container(
         width: double.infinity,
         height: 50,
@@ -17,20 +19,20 @@ class SearchBarWidget extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 10,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ]),
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
           child: Row(
             children: [
-              Icon(CupertinoIcons.search),
+              const Icon(CupertinoIcons.search),
               Container(
                 height: 50,
                 width: 300,
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
                     decoration: InputDecoration(

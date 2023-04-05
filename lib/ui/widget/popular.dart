@@ -4,6 +4,8 @@ import '../../products/products_manager.dart';
 class PopularItem extends StatelessWidget {
   final ProductsManagerPopurlar _productsManager = ProductsManagerPopurlar();
 
+  PopularItem({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +26,7 @@ class PopularItem extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 3,
                   blurRadius: 10,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 )
               ],
             ),
@@ -42,7 +44,7 @@ class PopularItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10), // Tạo khoảng cách giữa ảnh và tiêu đề sản phẩm
+                  const SizedBox(height: 10), // Tạo khoảng cách giữa ảnh và tiêu đề sản phẩm
                   Text(
                     product.title, // Hiển thị tiêu đề sản phẩm
                     style: const TextStyle(
@@ -50,7 +52,7 @@ class PopularItem extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 5), // Tạo khoảng cách giữa tiêu đề và giá sản phẩm
+                  const SizedBox(height: 5), // Tạo khoảng cách giữa tiêu đề và giá sản phẩm
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

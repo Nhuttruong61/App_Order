@@ -4,12 +4,14 @@ import '../../products/products_manager.dart';
 class NewestItem extends StatelessWidget {
   final ProductsManagerNestItem _productsManager =ProductsManagerNestItem();
 
+  NewestItem({super.key});
+
   @override
    Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 225,
       child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(width: 7),
+        separatorBuilder: (context, index) => const SizedBox(width: 7),
         scrollDirection: Axis.horizontal,
         itemCount: _productsManager.items.length,
         itemBuilder: (BuildContext context, int index) {
