@@ -1,5 +1,4 @@
 import 'package:apporderfood/products/products_manager.dart';
-import 'package:apporderfood/ui/orders/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'ui/pages/screen.dart';
 
@@ -22,10 +21,9 @@ class MyApp extends StatelessWidget {
             colorScheme:
                 ColorScheme.fromSwatch(primarySwatch: Colors.deepOrange),
             scaffoldBackgroundColor: const Color.fromARGB(255, 236, 221, 198)),
+        home: HomePage(),
         routes: {
-          // "/" : (context) =>ProductDetail(ProductsManagerPopurlar().items[1])
-          // "/": (context) =>const UserProductScreen(),
-          "/": (context) => const OrdersScreen(),
+          // CartScreen.routeName: (context) => CartScreen(),
         });
   }
 }

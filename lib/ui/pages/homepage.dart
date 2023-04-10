@@ -8,20 +8,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Order Food'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              // Hàm callback để xử lý sự kiện nhấn vào biểu tượng giỏ hàng
+            },
+          ),
+        ],
+      ),
       body: ListView(
         children: [
-          const AppBarWidget(),
-          // search
           const SearchBarWidget(),
-          // category
-          const Padding(
-              padding: EdgeInsets.only(top: 20, left: 10),
-              child: Text(
-                "Loại",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              )),
-          // CategoriesWiget(),
-          const CategoriesWiget(),
+
           // popular Items
           const Padding(
             padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
@@ -33,21 +34,13 @@ class HomePage extends StatelessWidget {
           PopularItem(),
           // Newest
           const Padding(
-            padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
-            child: Text(
-              "Mới nhất",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ),
-          NewestItem(),
-          const Padding(
               padding: EdgeInsets.only(top: 20, left: 10),
               child: Text(
                 "Gợi ý",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               )),
-              // Suggest
-              SuggestWidget(),
+          // Suggest
+          SuggestWidget(),
         ],
       ),
     );
