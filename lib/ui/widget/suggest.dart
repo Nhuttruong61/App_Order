@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../products/products_manager.dart';
+import '../../models/products_cart.dart';
 
 class SuggestWidget extends StatelessWidget {
   final ProductsManagerSuggest _productsManager = ProductsManagerSuggest();

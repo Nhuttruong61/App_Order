@@ -1,6 +1,9 @@
-import '../models/food_product.dart';
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'food_product.dart';
 
-class ProductsManagerPopurlar {
+class ProductsManagerPopurlar extends ChangeNotifier {
   final List<Product> _items = [
     Product(
       id: 'p1',
@@ -46,56 +49,39 @@ class ProductsManagerPopurlar {
   List<Product> get items {
     return [..._items];
   }
-}
 
-class ProductsManagerNestItem {
-  final List<Product> _items = [
-    Product(
-      id: 'a1',
-      title: 'Bánh canh',
-      description: 'Được làm từ bột gạo, bột mì, hoặc bột sắn hoặc bột gạo pha bột sắn cán thành tấm và cắt ra thành sợi to và ngắn với nước dùng được nấu từ tôm, cá, giò heo... thêm gia vị tùy theo từng loại',
-      price: 25000,
-      imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Banh-Canh-Noodle-Soup.jpg/180px-Banh-Canh-Noodle-Soup.jpg",
-    ),
-    Product(
-      id: 'a2',
-      title: 'Bánh đa cua',
-      description:
-          'Bánh đa với nước dùng riêu cua',
-      price: 50000,
-      imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/BANH_DA_CUA_1.jpg/180px-BANH_DA_CUA_1.jpg',
-    ),
-    Product(
-      id: 'a3',
-      title: 'Bánh tằm cà ri',
-      description:
-          'Bún gạo đặc biệt dùng với cà ri gà cay',
-      price: 30000,
-      imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/B%C3%A1nh_t%E1%BA%B1m_c%C3%A0_ri.jpg/180px-B%C3%A1nh_t%E1%BA%B1m_c%C3%A0_ri.jpg',
-    ),
-    Product(
-      id: 'a4',
-      title: 'Bún bung',
-      description:
-          'Bún nấu với sườn lợn và dọc mùng',
-      price: 25000,
-      imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/B%C3%BAn_m%E1%BB%8Dc_s%C6%B0%E1%BB%9Dn.jpg/180px-B%C3%BAn_m%E1%BB%8Dc_s%C6%B0%E1%BB%9Dn.jpg',
-    ),
-  ];
-    int get itemCount {
-    return _items.length;
+  // get list of products for sale
+  List<Product> getProductList() {
+    return _items;
   }
 
-  List<Product> get items {
-    return [..._items];
+  // list of products in user cart
+  final List<Product> _cartItems = [];
+
+ List<Product> get cartItems => _cartItems;
+  // add item to cart
+   void addItemToCart(Product product) {
+    _cartItems.add(product);
+    notifyListeners();
+  }
+
+  void clearCart() {
+    return _cartItems.clear();
+  }
+
+  // remove item from cart
+  void removeItemFromCart(Product product) {
+   _cartItems.remove(product);
+    setCartItem(_cartItems);
+    notifyListeners();
   }
 }
+void setCartItem(List<Product> cartItem) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setString('cart', json.encode(cartItem));
+}
 
-class ProductsManagerSuggest {
+class ProductsManagerSuggest extends ChangeNotifier {
   final List<Product> _items = [
     Product(
       id: 'b1',
@@ -108,8 +94,7 @@ class ProductsManagerSuggest {
     Product(
       id: 'b2',
       title: 'Bún chả',
-      description:
-          'Bún ăn kèm chả viên và chả miếng với nước chấm',
+      description: 'Bún ăn kèm chả viên và chả miếng với nước chấm',
       price: 50000,
       imageUrl:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/B%C3%BAn_ch%E1%BA%A3_H%C3%A0ng_M%C3%A0nh.jpg/180px-B%C3%BAn_ch%E1%BA%A3_H%C3%A0ng_M%C3%A0nh.jpg',
@@ -117,8 +102,7 @@ class ProductsManagerSuggest {
     Product(
       id: 'b3',
       title: 'Bún đậu mắm tôm',
-      description:
-          'Bún ăn với đậu rán và mắm tôm',
+      description: 'Bún ăn với đậu rán và mắm tôm',
       price: 30000,
       imageUrl:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/B%C3%BAn_%C4%91%E1%BA%ADu_m%E1%BA%AFm_t%C3%B4m.jpg/180px-B%C3%BAn_%C4%91%E1%BA%ADu_m%E1%BA%AFm_t%C3%B4m.jpg',
@@ -126,17 +110,18 @@ class ProductsManagerSuggest {
     Product(
       id: 'b4',
       title: 'Bún ắm',
-      description:
-          'Bún chan nước dùng làm từ mắm cá linh hay cá sặc',
+      description: 'Bún chan nước dùng làm từ mắm cá linh hay cá sặc',
       price: 25000,
       imageUrl:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/B%C3%BAn_m%E1%BA%AFm.jpg/180px-B%C3%BAn_m%E1%BA%AFm.jpg',
     ),
   ];
-    int get itemCount {
+  // Get the number of items in the items list.
+  int get itemCount {
     return _items.length;
   }
 
+  // Get a copy of the items list.
   List<Product> get items {
     return [..._items];
   }

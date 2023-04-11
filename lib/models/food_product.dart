@@ -4,7 +4,6 @@ class Product {
   final String description;
   final double price;
   final String imageUrl;
-  final bool isFavorite;
 
   Product({
     this.id,
@@ -12,23 +11,23 @@ class Product {
     required this.description,
     required this.price,
     required this.imageUrl,
-    this.isFavorite = false,
   });
-  Product copyWith({
-    String? id,
-    String? title,
-    String? description,
-    double? price,
-    String? imageUrl,
-    bool? isFavorite,
-  }) {
-    return Product(
-      id: id ?? this.id,
-      title: title ?? this.title,
-      description: description ?? this.description,
-      price: price ?? this.price,
-      imageUrl: imageUrl ?? this.imageUrl,
-      isFavorite: isFavorite ?? this.isFavorite,
-    );
+
+ Product.fromMap(Map<dynamic, dynamic> res)
+      : id = res['id'],
+        title = res['title'],
+        description = res['description'],
+        price = res['price'].toDouble(),
+        imageUrl = res['imageUrl'];
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'description': description,
+      'price': price,
+      'imageUrl': imageUrl,
+    };
   }
+
 }

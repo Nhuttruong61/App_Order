@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
-import '../../products/products_manager.dart';
+import 'package:provider/provider.dart';
+import '../../models/produCartManager.dart';
+import '../../models/products_cart.dart';
+import '../../models/food_product.dart';
 
-class PopularItem extends StatelessWidget {
+class PopularItem extends StatefulWidget {
+  PopularItem({Key? key}) : super(key: key);
+  @override
+  _PopularItemState createState() => _PopularItemState();
+}
+
+class _PopularItemState extends State<PopularItem> {
   final ProductsManagerPopurlar _productsManager = ProductsManagerPopurlar();
-
-  PopularItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 225,
       child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(width: 7), // Tạo khoảng cách giữa các sản phẩm
-        scrollDirection: Axis.horizontal, // Hiển thị sản phẩm theo chiều ngang
-        itemCount: _productsManager.items.length, // Số lượng sản phẩm trong danh sách
+        separatorBuilder: (context, index) => SizedBox(width: 7),
+        scrollDirection: Axis.horizontal,
+        itemCount: _productsManager.items.length,
         itemBuilder: (BuildContext context, int index) {
           final product = _productsManager.items[index];
           return Container(
@@ -44,20 +51,20 @@ class PopularItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10), // Tạo khoảng cách giữa ảnh và tiêu đề sản phẩm
+                  const SizedBox(height: 10),
                   Text(
-                    product.title, // Hiển thị tiêu đề sản phẩm
+                    product.title,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5), // Tạo khoảng cách giữa tiêu đề và giá sản phẩm
+                  const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${product.price.toString()} đồng', // Hiển thị giá của sản phẩm
+                        '${product.price.toString()} đồng',
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black,
@@ -65,10 +72,14 @@ class PopularItem extends StatelessWidget {
                       ),
                       IconButton(
                         icon: const Icon(
-                          Icons.shopping_cart, // Hiển thị biểu tượng giỏ hàng
+                          Icons.shopping_cart,
                           color: Colors.red,
                         ),
-                        onPressed: () {}, // Hành động khi nhấn vào biểu tượng giỏ hàng
+                        onPressed: () {
+                          final productCartManager =
+                              context.read<ProductCartManager>();
+                          productCartManager.addToCart(product);
+                        },
                       ),
                     ],
                   ),

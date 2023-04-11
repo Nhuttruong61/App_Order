@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:apporderfood/ui/pages/screen.dart';
 import 'package:flutter/material.dart';
 import '../widget/out.dart';
 
@@ -12,11 +12,13 @@ class HomePage extends StatelessWidget {
         title: Text('Order Food'),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              // Hàm callback để xử lý sự kiện nhấn vào biểu tượng giỏ hàng
-            },
-          ),
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CartScreen()));
+              }),
         ],
       ),
       body: ListView(
@@ -28,16 +30,17 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
             child: Text(
               "Phổ biến",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
           ),
           PopularItem(),
           // Newest
           const Padding(
-              padding: EdgeInsets.only(top: 20, left: 10),
+              padding:
+                  EdgeInsets.only(top: 20, bottom: 10, right: 10, left: 10),
               child: Text(
                 "Gợi ý",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               )),
           // Suggest
           SuggestWidget(),

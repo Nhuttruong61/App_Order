@@ -1,29 +1,33 @@
-import 'package:apporderfood/products/products_manager.dart';
+import 'package:apporderfood/models/food_product.dart';
+import 'package:apporderfood/models/produCartManager.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'ui/pages/screen.dart';
-
-import 'products/products_manager.dart';
+import 'models/products_cart.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Food App',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ProductCartManager>(
+          create: (_) => ProductCartManager(),
+        ),
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            colorScheme:
-                ColorScheme.fromSwatch(primarySwatch: Colors.deepOrange),
-            scaffoldBackgroundColor: const Color.fromARGB(255, 236, 221, 198)),
-        home: HomePage(),
-        routes: {
-          // CartScreen.routeName: (context) => CartScreen(),
-        });
+          primarySwatch: Colors.deepOrange,
+        ),
+        home: IntroPage(),
+      ),
+    );
   }
 }
