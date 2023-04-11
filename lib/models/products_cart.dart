@@ -54,28 +54,8 @@ class ProductsManagerPopurlar extends ChangeNotifier {
   List<Product> getProductList() {
     return _items;
   }
-
-  // list of products in user cart
-  final List<Product> _cartItems = [];
-
- List<Product> get cartItems => _cartItems;
-  // add item to cart
-   void addItemToCart(Product product) {
-    _cartItems.add(product);
-    notifyListeners();
-  }
-
-  void clearCart() {
-    return _cartItems.clear();
-  }
-
-  // remove item from cart
-  void removeItemFromCart(Product product) {
-   _cartItems.remove(product);
-    setCartItem(_cartItems);
-    notifyListeners();
-  }
 }
+
 void setCartItem(List<Product> cartItem) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.setString('cart', json.encode(cartItem));
