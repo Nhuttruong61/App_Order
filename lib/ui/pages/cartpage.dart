@@ -44,14 +44,17 @@ class CartScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Tổng tiền:  ',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Consumer<ProductCartManager>(
+                  builder: (context, cart, child) => Text(
+                    'Tổng tiền: ${cart.totalPrice} đồng',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {},
                   child: const Text(
-                    'Thanh Toán:  ',
+                    'Thanh Toán  ',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 )

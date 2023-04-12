@@ -21,4 +21,11 @@ class ProductCartManager extends ChangeNotifier {
     _cart.clear();
     notifyListeners();
   }
+    double get totalPrice {
+    double sum = 0.0;
+    for (var product in items) {
+      sum += product.price;
+    }
+    return sum;
+  }
 }
