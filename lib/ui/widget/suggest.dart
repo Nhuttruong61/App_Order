@@ -25,8 +25,7 @@ class _SuggestWidgetState extends State<SuggestWidget> {
         itemCount:
             _productsManager.items.length, // Số lượng sản phẩm được đề xuất
         itemBuilder: (BuildContext context, int index) {
-          final product = _productsManager
-              .items[index]; // Lấy thông tin của sản phẩm tại vị trí index
+          final product = _productsManager.items[index]; // Lấy thông tin của sản phẩm tại vị trí index
           return Container(
             height: 100,
             decoration: BoxDecoration(

@@ -44,7 +44,7 @@ class _IntroPageState extends State<IntroPage> {
               decoration: BoxDecoration(
                   color: Colors.orange[300],
                   borderRadius: BorderRadius.circular(10)),
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: const Text(
                 'Bắt đầu',
                 style: TextStyle(

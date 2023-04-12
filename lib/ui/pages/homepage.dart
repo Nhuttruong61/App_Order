@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Order Food'),
+        title: const Text('Order Food'),
         actions: [
           IconButton(
               icon: Icon(Icons.shopping_cart),
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               )),
           // Suggest
-          SuggestWidget(),
+          const SuggestWidget(),
         ],
       ),
     );

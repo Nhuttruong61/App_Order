@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/produCartManager.dart';
 import '../../models/products_cart.dart';
-import '../../models/food_product.dart';
 
 class PopularItem extends StatefulWidget {
-  PopularItem({Key? key}) : super(key: key);
+  const PopularItem({Key? key}) : super(key: key);
   @override
+
   _PopularItemState createState() => _PopularItemState();
 }
 
@@ -18,7 +18,7 @@ class _PopularItemState extends State<PopularItem> {
     return Container(
       height: 225,
       child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(width: 7),
+        separatorBuilder: (context, index) => const SizedBox(width: 7),
         scrollDirection: Axis.horizontal,
         itemCount: _productsManager.items.length,
         itemBuilder: (BuildContext context, int index) {

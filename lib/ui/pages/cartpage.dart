@@ -10,7 +10,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Giỏ hàng'),
+        title: const Text('Giỏ hàng'),
       ),
       body: Column(
         children: [
@@ -27,10 +27,10 @@ class CartScreen extends StatelessWidget {
                   title: Text(cart.items[index].title),
                   subtitle: Text(
                     ' ${cart.items[index].price} đồng',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete),
+                    icon: const Icon(Icons.delete),
                     onPressed: () {
                       cart.removeFromCart(cart.items[index]);
                     },
@@ -40,7 +40,7 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
