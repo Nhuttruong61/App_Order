@@ -22,11 +22,10 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: [
-          const SearchBarWidget(),
-
+        children: const [
+          SearchBarWidget(),
           // popular Items
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(top: 20, left: 20, bottom: 10),
             child: Text(
               "Phổ biến",
@@ -35,7 +34,7 @@ class HomePage extends StatelessWidget {
           ),
           PopularItem(),
           // Newest
-          const Padding(
+          Padding(
               padding:
                   EdgeInsets.only(top: 20, bottom: 10, right: 10, left: 10),
               child: Text(
@@ -43,7 +42,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               )),
           // Suggest
-          const SuggestWidget(),
+          SuggestWidget(),
         ],
       ),
     );

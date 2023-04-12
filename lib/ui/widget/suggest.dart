@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/produCartManager.dart';
-import '../../models/products_cart.dart';
+import '../../models/data_cart.dart';
 
 class SuggestWidget extends StatefulWidget {
   const SuggestWidget({Key? key}) : super(key: key);
