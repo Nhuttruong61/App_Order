@@ -12,22 +12,4 @@ class Product {
     required this.price,
     required this.imageUrl,
   });
-
- Product.fromMap(Map<dynamic, dynamic> res)
-      : id = res['id'],
-        title = res['title'],
-        description = res['description'],
-        price = res['price'].toDouble(),
-        imageUrl = res['imageUrl'];
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'description': description,
-      'price': price,
-      'imageUrl': imageUrl,
-    };
-  }
-
 }

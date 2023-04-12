@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/produCartManager.dart';
 import '../../models/products_cart.dart';
-import '../../models/food_product.dart';
 
 class SuggestWidget extends StatefulWidget {
   const SuggestWidget({Key? key}) : super(key: key);
@@ -25,7 +24,8 @@ class _SuggestWidgetState extends State<SuggestWidget> {
         itemCount:
             _productsManager.items.length, // Số lượng sản phẩm được đề xuất
         itemBuilder: (BuildContext context, int index) {
-          final product = _productsManager.items[index]; // Lấy thông tin của sản phẩm tại vị trí index
+          final product = _productsManager
+              .items[index]; // Lấy thông tin của sản phẩm tại vị trí index
           return Container(
             height: 100,
             decoration: BoxDecoration(

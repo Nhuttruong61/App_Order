@@ -27,7 +27,8 @@ class CartScreen extends StatelessWidget {
                   title: Text(cart.items[index].title),
                   subtitle: Text(
                     ' ${cart.items[index].price} đồng',
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
@@ -51,11 +52,16 @@ class CartScreen extends StatelessWidget {
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Thanh Toán  ',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Consumer<ProductCartManager>(
+                  builder: (context, cart, child) => ElevatedButton(
+                    onPressed: () {
+                      cart.clearCart();
+                    },
+                    child: const Text(
+                      'Thanh Toán  ',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 )
               ],
