@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../models/produCartManager.dart';
 import '../../models/products_cart.dart';
+import '../../models/food_product.dart';
 
-class SuggestWidget extends StatelessWidget {
+class SuggestWidget extends StatefulWidget {
+  const SuggestWidget({Key? key}) : super(key: key);
+
+  @override
+  _SuggestWidgetState createState() => _SuggestWidgetState();
+}
+
+class _SuggestWidgetState extends State<SuggestWidget> {
   final ProductsManagerSuggest _productsManager = ProductsManagerSuggest();
-
-  SuggestWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +20,7 @@ class SuggestWidget extends StatelessWidget {
       height: 300,
       child: ListView.separated(
         separatorBuilder: (context, index) =>
-           const SizedBox(height: 20), // Tạo khoảng cách giữa các sản phẩm
+            const SizedBox(height: 20), // Tạo khoảng cách giữa các sản phẩm
         scrollDirection: Axis.vertical,
         itemCount:
             _productsManager.items.length, // Số lượng sản phẩm được đề xuất
@@ -55,7 +63,7 @@ class SuggestWidget extends StatelessWidget {
                     children: [
                       const SizedBox(height: 10),
                       Text(
-                        product.title, 
+                        product.title,
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -63,7 +71,7 @@ class SuggestWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        '${product.price} đồng', 
+                        '${product.price} đồng',
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black,
@@ -79,7 +87,9 @@ class SuggestWidget extends StatelessWidget {
                     color: Colors.red,
                   ),
                   onPressed: () {
-                    
+                    final productCartManager =
+                        context.read<ProductCartManager>();
+                    productCartManager.addToCart(product);
                   }, // Hành động khi nhấn vào nút giỏ hàng
                 ),
               ],
